@@ -5,19 +5,20 @@ const request = require('supertest')
 
 var app = require('./server').app
 
+describe('server', ()=>{
+  it('should return Hello world response', (done)=>{
+    request(app)
+      .get('/')
+      .expect('Hello world')
+      .expect(200)
+      .end(done)
+  })
 
-it('should return Hello world response', (done)=>{
-  request(app)
-    .get('/')
-    .expect('Hello world')
-    .expect(200)
-    .end(done)
+  // it('respond with json', function(done) {
+  //   request(app)
+  //     .get('/user')
+  //     .set('Accept', 'application/json')
+  //     .expect('Content-Type', /json/)
+  //     .expect(200, done);
+  // });
 })
-
-// it('respond with json', function(done) {
-//   request(app)
-//     .get('/user')
-//     .set('Accept', 'application/json')
-//     .expect('Content-Type', /json/)
-//     .expect(200, done);
-// });
